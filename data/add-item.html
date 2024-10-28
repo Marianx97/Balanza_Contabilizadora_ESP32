@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>Balanza Contabilizadora</title>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./estilos.css">
+	</head>
+  <body>
+    <header>
+			<a href="/"><img class="logo-utn" src="./utn.png"></a>
+			<h2>Balanza Contabilizadora</h2>
+		</header>
+
+    <main>
+      <h3>Nuevo ítem:</h3>
+      <form class="add-item-form" action="/add-item" method="post">
+        <p>Nombre: <input type="text" id="item-name" name="item-name" placeholder="Nombre del item"></p>
+        <br>
+        <p>Cantidad: <input type="number" id="item-quantity" name="item-quantity" placeholder="1" min="1" value="1"></p>
+        <p style="font-size: small;">(Indica la cantidad de ítems que se están pesando para registrar el ítem)</p>
+        <br>
+        <div>
+          <p>Peso total: <div id="valor-box" class="mi-caja" style="width: 250px"></div></p>
+          <p>Peso unitario: <div id="valor-unitario-box" class="mi-caja" style="width: 250px"></div></p>
+          <input type="text" id="item-avg-value" name="item-avg-value" hidden="true">
+        </div>
+        <button type="submit" value="Submit" class="boton">Guardar</button>
+        <button type="cancel" value="Cancel" class="boton">Cancelar</button>
+      </form>
+    </main>
+
+    <footer class="main-footer">
+			Balanza Contabilizadora | Grupo 1 R4053 <br>
+		</footer>
+    <script>
+      // Función para actualizar el valor desde el servidor
+      function updateValue() {
+        fetch('/peso_en_gramos')
+          .then(response => response.text())
+          .then(data => {
+            // Actualizar el contenido del elemento "valor-box"
+            document.getElementById('valor-box').textContent = data + " g";
+
+            const quantityElement = document.getElementById('item-quantity');
+            const quantityValue = quantityElement.value;
+            const avgValue = parseFloat(data)/quantityValue;
+
+            // Actualizar el contenido del elemento "valor-unitario-box"
+            document.getElementById('valor-unitario-box').textContent = avgValue.toString() + " g";
+            document.getElementById('item-avg-value').value = avgValue.toString();
+          })
+          .catch(error => {
+            console.error('Error al obtener el valor:', error);
+          });
+      }
+
+      // Actualizar el valor cada 1 segundos (1000 milisegundos)
+      setInterval(updateValue, 1000);
+
+      // Actualizar el valor medido inmediatamente al cargar la página
+      updateValue();
+    </script>
+  </body>
+</html>

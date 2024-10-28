@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Balanza Contabilizadora</title>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./estilos.css">
+	</head>
+
+	<body>
+		<header>
+			<a href="/"><img class="logo-utn" src="./utn.png"></a>
+			<h2>Balanza Contabilizadora</h2>
+		</header>
+
+		<main>
+			<h3>Configuracion Tecnica</h3>
+			<form class="form-config" action="/config" method="post">
+			<p>Usuario:<input type="text" name="SSID" placeholder="EJ: Balanza"></p>
+			<p>Contraseña:<input type="text" name="PASSWORD" placeholder="(Min. 8 Caract.)"></p>
+			<p>IP:<input type="text" name="IP" placeholder="EJ: 192.168.1.200"></p>
+			<p>Gateway:<input type="text" name="GATEWAY" placeholder="EJ: 192.168.1.1"></p>
+			<button type="submit" value="Submit" class="boton">Finalizar Configuracion</button>
+			</form>
+		</main>
+
+		<footer class="main-footer">
+			Balanza Contabilizadora | Grupo 1 R4053 <br>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,181 @@
+:root{
+  --header: #EAEAEA;
+  --boton: #AB0000;
+}
+*{
+  padding:0;
+  margin:0;
+  text-decoration: none;
+  outline: none;
+  border:none;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+header{
+  background: var(--header);
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+}
+
+header a{
+  width:20%;
+  min-width:150px;
+}
+
+.logo-utn{
+  width:100%;
+}
+
+main{
+  min-height: 80vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 100px;
+}
+
+.pasos{
+  height: fit-content;
+  width: 80%;
+  padding: 50px 0px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap:40px;
+}
+
+.form-config{
+    width: 100%;
+    height: fit-content;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.form-config input{
+  font-size: 3em;
+  border-bottom: solid 2px grey;
+  width: fit-content;
+  display:flex;
+  letter-spacing:5pt;
+  text-align:center;
+  margin:20px 0px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+-webkit-appearance: none;
+}
+
+.index{
+  position: absolute;
+  top: 50%;
+}
+
+.boton{
+  transition: 0.2s all ease;
+  padding:10px 40px;
+  background: var(--boton);
+  color: #fff;
+  border-radius:2px;
+}
+.boton[disabled]
+{
+  background-color: #0003;
+}
+.return{
+  background: var(--header);
+  color: var(--boton);
+}
+
+.main-footer{
+  background:var(--header);
+  padding:20px 0px;
+  text-align:center;
+}
+
+
+@media screen and (max-width: 600px) {
+  .form-config {
+    width: 150%;
+  }
+  .form-config input[type="text"] {
+    width: 100%;
+    height: 30px;
+   font-size: 20px;
+  
+  }
+
+  h3 {
+    text-align: center;
+    width: 200%;
+    margin-bottom: 40px;
+  }
+  header h2 {
+    text-align: right;
+  
+    font-size: 25px;
+  }
+
+  .pasos {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    position: relative;
+  
+  }
+  .boton {
+    width: 100%;
+    text-align: center;
+  }
+
+  p {
+    width: 100%;
+
+  }
+}
+
+/*Nuevo estilos */
+
+h2 {
+  font-family: Arial;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.info-box {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.mi-titulo {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px; /* Espacio inferior para separar del elemento siguiente */
+    text-align: center; /* Centrar el texto horizontalmente */
+    font-weight: bold; /* Hacer que el texto sea negrita */
+    margin-top: 20px; /* Agregar espacio en la parte superior para moverlo hacia abajo */
+}
+
+.mi-caja {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+    text-align: center; /* Centrar el texto horizontalmente */
+    font-weight: bold;
+}
+
+#button-config {
+  margin-top: 20px;
+}
+

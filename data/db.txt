@@ -1,0 +1,2 @@
+item-name;avg-value
+test_item;10.00
